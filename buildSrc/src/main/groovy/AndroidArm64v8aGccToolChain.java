@@ -20,11 +20,11 @@ import java.lang.reflect.*;
 
 import java.io.File;
 
-public class AndroidArmGccToolChain extends AndroidGccToolChain implements AndroidArmGcc {
+public class AndroidArm64v8aGccToolChain extends AndroidGccToolChain implements AndroidArm64v8aGcc {
 
     public static final String DEFAULT_NAME = "androidArm64v8aGcc";
 
-    public AndroidArmGccToolChain(String name, BuildOperationProcessor buildOperationProcessor, OperatingSystem operatingSystem, FileResolver fileResolver, ExecActionFactory execActionFactory, CompilerMetaDataProviderFactory metaDataProviderFactory, Instantiator instantiator) {
+    public AndroidArm64v8aGccToolChain(String name, BuildOperationProcessor buildOperationProcessor, OperatingSystem operatingSystem, FileResolver fileResolver, ExecActionFactory execActionFactory, CompilerMetaDataProviderFactory metaDataProviderFactory, Instantiator instantiator) {
         super(name, buildOperationProcessor, operatingSystem, fileResolver, execActionFactory, metaDataProviderFactory, instantiator);
     }
 
@@ -55,7 +55,6 @@ public class AndroidArmGccToolChain extends AndroidGccToolChain implements Andro
 
     @Override
     protected boolean supportsPlatform(NativePlatformInternal targetPlatform, String rawName) {
-        System.out.println(targetPlatform.getArchitecture());
         return targetPlatform.getArchitecture().isArm() && rawName.contains("arm64v8a");
     }
 

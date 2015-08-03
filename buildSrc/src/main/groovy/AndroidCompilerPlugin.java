@@ -49,12 +49,12 @@ public class AndroidCompilerPlugin implements Plugin<Project> {
             });
             toolChainRegistry.registerDefaultToolChain(AndroidArmClangToolChain.DEFAULT_NAME, AndroidArmClang.class);
 
-            toolChainRegistry.registerFactory(AndroidArmGcc.class, new NamedDomainObjectFactory<AndroidArmGcc>() {
-                public AndroidArmGcc create(String name) {
-                    return instantiator.newInstance(AndroidArmGccToolChain.class, name, buildOperationProcessor, OperatingSystem.current(), fileResolver, execActionFactory, metaDataProviderFactory, instantiator);
+            toolChainRegistry.registerFactory(AndroidArm64v8aGcc.class, new NamedDomainObjectFactory<AndroidArm64v8aGcc>() {
+                public AndroidArm64v8aGcc create(String name) {
+                    return instantiator.newInstance(AndroidArm64v8aGccToolChain.class, name, buildOperationProcessor, OperatingSystem.current(), fileResolver, execActionFactory, metaDataProviderFactory, instantiator);
                 }
             });
-            toolChainRegistry.registerDefaultToolChain(AndroidArmGccToolChain.DEFAULT_NAME, AndroidArmGcc.class);
+            toolChainRegistry.registerDefaultToolChain(AndroidArm64v8aGccToolChain.DEFAULT_NAME, AndroidArm64v8aGcc.class);
         }
 
     }

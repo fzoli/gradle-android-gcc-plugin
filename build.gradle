@@ -1,3 +1,5 @@
+// TODO: strip after link, ndkRoot to properties
+
 apply plugin: 'cpp'
 apply plugin: AndroidCompilerPlugin
 
@@ -11,7 +13,7 @@ model {
         visualCpp(VisualCpp)
         gcc(Gcc)
         clang(Clang)
-        androidGcc(AndroidArmGcc)
+        androidArm64v8aGcc(AndroidArm64v8aGcc)
     }
 
     platforms {
@@ -40,7 +42,7 @@ model {
     components {
  	hello(NativeLibrarySpec) {
 		//targetPlatform "x86"
-		//targetPlatform "x64"
+		targetPlatform "x64"
                 targetPlatform "androidArm64v8a"
 		binaries.all {
 			cppCompiler.define "FLAVOR_${flavor.name.toUpperCase()}"
@@ -48,7 +50,7 @@ model {
 	}
         main(NativeExecutableSpec) {
 		//targetPlatform "x86"
-		//targetPlatform "x64"
+		targetPlatform "x64"
                 targetPlatform "androidArm64v8a"
         	binaries.all {
                 	lib library: "hello", linkage: 'static'
