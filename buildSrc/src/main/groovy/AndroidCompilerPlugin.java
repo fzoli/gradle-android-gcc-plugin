@@ -10,9 +10,7 @@ import org.gradle.internal.service.ServiceRegistry;
 import org.gradle.model.Defaults;
 import org.gradle.model.RuleSource;
 import org.gradle.nativeplatform.plugins.NativeComponentPlugin;
-import org.gradle.nativeplatform.toolchain.Clang;
 import org.gradle.nativeplatform.toolchain.internal.NativeToolChainRegistryInternal;
-import org.gradle.nativeplatform.toolchain.internal.clang.ClangToolChain;
 import org.gradle.nativeplatform.toolchain.internal.gcc.version.CompilerMetaDataProviderFactory;
 import org.gradle.process.internal.ExecActionFactory;
 

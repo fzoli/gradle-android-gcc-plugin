@@ -1,3 +1,7 @@
 **/tmp
 **/build
 **/.gradle
+
+**/.idea
+**/*.iml
+

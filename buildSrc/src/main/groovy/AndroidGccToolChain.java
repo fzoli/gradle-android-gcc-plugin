@@ -2,8 +2,6 @@ import org.gradle.api.internal.file.FileResolver;
 import org.gradle.internal.operations.BuildOperationProcessor;
 import org.gradle.internal.os.OperatingSystem;
 import org.gradle.internal.reflect.Instantiator;
-import org.gradle.nativeplatform.toolchain.Gcc;
-import org.gradle.nativeplatform.toolchain.internal.gcc.AbstractGccCompatibleToolChain;
 import org.gradle.nativeplatform.toolchain.internal.gcc.DefaultGccPlatformToolChain;
 import org.gradle.nativeplatform.toolchain.internal.gcc.version.CompilerMetaDataProviderFactory;
 import org.gradle.process.internal.ExecActionFactory;
@@ -11,9 +9,7 @@ import org.gradle.process.internal.ExecActionFactory;
 import org.gradle.api.Action;
 import org.gradle.nativeplatform.toolchain.internal.gcc.TargetPlatformConfiguration;
 import org.gradle.nativeplatform.platform.internal.NativePlatformInternal;
-
 import org.gradle.nativeplatform.toolchain.internal.gcc.GccToolChain;
-import org.gradle.nativeplatform.toolchain.internal.gcc.version.GccVersionResult;
 
 import java.util.List;
 import java.lang.reflect.*;
