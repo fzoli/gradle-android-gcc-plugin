@@ -1,0 +1,64 @@
+apply plugin: 'cpp'
+apply plugin: AndroidCompilerPlugin
+
+androidCompiler {
+  ndkRoot = "/mnt/ntfs/android/android-ndk-r10d"
+}
+
+model {
+
+    toolChains {
+        visualCpp(VisualCpp)
+        gcc(Gcc)
+        clang(Clang)
+        androidGcc(AndroidArmGcc)
+    }
+
+    platforms {
+        x86 {
+            architecture "x86"
+        }
+        x64 {
+            architecture "x86_64"
+        }
+        androidArm64v8a {
+            operatingSystem "linux"
+            architecture "arm"
+        }
+    }
+
+    buildTypes {
+        debug
+        release
+    }
+
+    flavors {
+        community
+        enterprise
+    }
+
+    components {
+ 	hello(NativeLibrarySpec) {
+		//targetPlatform "x86"
+		//targetPlatform "x64"
+                targetPlatform "androidArm64v8a"
+		binaries.all {
+			cppCompiler.define "FLAVOR_${flavor.name.toUpperCase()}"
+		}
+	}
+        main(NativeExecutableSpec) {
+		//targetPlatform "x86"
+		//targetPlatform "x64"
+                targetPlatform "androidArm64v8a"
+        	binaries.all {
+                	lib library: "hello", linkage: 'static'
+		}
+	}
+    }
+
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.5'
+}
+
